@@ -1,0 +1,107 @@
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name = "viewpport" content="width=device-width, inital-scale=1.0">
+
+    <!-- Custom Stylesheets-->
+    <link rel="stylesheet" href="../static/css/trip_summary.css">
+    <link rel="stylesheet" href="../static/css/navbar.css">
+    <link href="https://fonts.googleapis.com/css2?
+    family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <title>Trip Planner</title>
+</head>
+<body>
+    <nav>
+        <div class="navheading">
+            <h4>Trip Planner</h4>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/logout">Logout</a></li>
+            <li><a href="/map">Map</a></li>
+            <li><a href="/profile">Profile</a></li>
+        </ul>
+    </nav>
+    <!-- Error Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                {% if category == 'error' %}
+                    <div class="alert alert-danger alter-dismissable fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="m1-2 mb-1 close" data-dismiss="alert">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                {% else %}
+                    <div class="alert alert-success alter-dismissable fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="m1-2 mb-1 close" data-dismiss="alert">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h1>{{trip.name}}</h1>
+                    <p>{{trip.desc}}</p>
+                </div>
+                <div class="cards">
+                        <div class="card">
+                            <div class="card__content">
+                                <h5>General Information</h5>
+                                <p>Activity Type: {{type.type}}</p>
+                                <p>Date: {{trip.date}}</p>
+                                <p>Number of People: {{trip.num_people}}</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card__content">
+                                <h5>Menu</h5>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card__content">
+                                <h5>Gear List</h5>
+                                    {% for gear_items in gear_items %}
+                                    <div class="box">
+                                        <input type="checkbox">
+                                        <label>{{gear_items.name}}</label>
+                                        <button type="button" onClick="deleteGearItem({{gear_items.id}}, {{trip.id}})">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    {% endfor %}
+                                    <form method="POST">
+                                        <input id="textboxid" type="text" name="item" placeholder="item">
+                                        <input id="textboxid" type="text" name="quantity" placeholder="quantity">
+                                          <input type="submit" value="Add Item" class="button" style="cursor: pointer">
+                                    </form>
+                                    <a href="https://recsports.utk.edu/utop/equipment-rentals/" target="_blank" rel="noopener noreferrer">Need gear?</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card__content">
+                                <h5>Map</h5>
+                            </div>
+                            <div class="card__image">
+                                <iframe width="450px" height="460px" frameborder="0" 
+                                scrolling="no" src="/trip-summary-map/{{trip.id}}">
+                                </iframe>
+                            </div>
+                        </div>
+                </div>
+            </div>
+    </div>
+    <script
+      type="text/javascript"
+      src="../static/js/index.js"
+    ></script>
+</body>
+</html>

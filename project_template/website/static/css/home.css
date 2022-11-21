@@ -1,0 +1,141 @@
+#title_section {
+    background-color: #5CDB95;
+}
+
+#camping_image {
+    border-radius: 2%;
+    display: block;
+    margin-left: auto;
+}
+
+#title_container {
+    padding: 2% 10%;
+}
+
+#title_introduction {
+    font-family: "Montserrat-Black";
+    color: rgb(0, 0, 0);
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+#title_details {
+    color: rgb(53, 51, 51);
+    font-size: 1.75rem;
+}
+
+.title_button {
+    margin: 5% 3% 5% 0;
+}
+
+.title_card {
+    background-color: #5CDB95;
+    border: 0;
+    width: 18rem;
+}
+
+.trip_image {
+    float: left;
+    background-size: cover;
+    border-radius: 5%;
+    width: 100%;
+    height: 100%;
+}
+
+
+.image_row {
+    margin-left: 0%;
+}
+
+
+.quality {
+    text-align: center;
+    padding: 5%;
+}
+
+.quality_icon {
+    font-size: 4rem;
+    color: #5CDB95;
+}
+
+.navbar {
+    padding-bottom: 2rem;
+}
+
+.navbar-brand {
+    font-size: 2rem;
+    font-weight: bold;
+    color: black;
+}
+
+.navbar-item {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.nav-link {
+    color: black;
+}
+
+#feature_section {
+    background-color: #5CDB95;
+    padding-bottom: 10%;
+}
+
+.feature_icon {
+    font-size: 4rem;
+}
+
+
+.feature {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+body {
+    font-family: "Montserrat";
+}
+
+@media (max-width: 1902px) {
+    .title_card {
+        width: 20rem;
+    }
+
+    #t_img3 {
+        display: none;
+    }
+
+    #title_introduction {
+        font-size: 2.5rem;
+        font-weight: bold;
+        line-height: 1.2;
+    }
+
+    #title_details {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 1422px) {
+    #t_img2 {
+        display: none;
+    }
+
+    #title_introduction {
+        font-size: 2rem;
+        font-weight: bold;
+        line-height: 1.2;
+    }
+
+    #title_details {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 767px) {
+    #t_img1 {
+        display: none;
+    }
+
+}
